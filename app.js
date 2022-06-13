@@ -44,7 +44,7 @@ async function giveWord() {
         } else if (e.keyCode==8) { // for back sapce
             elements[i].innerText = "";
             strings = strings.slice(0,-1);
-            i = Math.max(0,i-1);
+            i = Math.max(con-5,i-1);
         } else if (e.keyCode==13 && strings.length==5) {
             box.style.setProperty('visibility', 'visible'); //loading feature
 
@@ -58,6 +58,10 @@ async function giveWord() {
                     con += 5;
                     strings = "";
                     i += 1;
+                    if (con===35) { // if word doesnt matches after 6 guess, flashing all red
+                        alert("You lose");
+                        window.location.reload();
+                    }
                 }else {
                      // if not a valid re signal
                     for (var k = con-5; k < con; k++) {
