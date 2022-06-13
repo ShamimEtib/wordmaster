@@ -122,6 +122,8 @@ function wordMatching(string) {
         }
         else if (test.includes(string[j])) {
             elements[c].style.background = "yellow"; // matched but different column
+        }else {
+            elements[c].style.background = "#ccc";
         }
     }
     return k; // returning how many matched
